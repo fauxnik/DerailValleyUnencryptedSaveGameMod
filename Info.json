@@ -1,0 +1,9 @@
+{
+	"Id": "UnencryptedSaveGameMod",
+	"DisplayName": "Unencrypted Save Game Mod",
+	"Author": "fauxnik",
+	"Version": "1.0.0",
+	"AssemblyName": "UnencryptedSaveGameMod.dll",
+	"EntryMethod": "UnencryptedSaveGameMod.Main.Load",
+	"Repository": ""
+}
