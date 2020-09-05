@@ -1,0 +1,14 @@
+{
+    "Releases": [
+        {
+            "Id": "UnencryptedSaveGameMod",
+            "Version": "1.0.1",
+            "DownloadUrl": "https://github.com/fauxnik/DerailValleyUnencryptedSaveGameMod/releases/download/v1.0.1/UnencryptedSaveGameMod.zip"
+        },
+        {
+            "Id": "UnencryptedSaveGameMod",
+            "Version": "1.0.0",
+            "DownloadUrl": "https://github.com/fauxnik/DerailValleyUnencryptedSaveGameMod/releases/download/v1.0.0/UnencryptedSaveGameMod.zip"
+        }
+    ]
+}

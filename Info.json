@@ -1,9 +1,9 @@
 {
 	"Id": "UnencryptedSaveGameMod",
-	"DisplayName": "Unencrypted Save Game Mod",
+	"DisplayName": "Unencrypted Save File",
 	"Author": "fauxnik",
-	"Version": "1.0.0",
+	"Version": "1.0.1",
 	"AssemblyName": "UnencryptedSaveGameMod.dll",
 	"EntryMethod": "UnencryptedSaveGameMod.Main.Load",
-	"Repository": ""
+	"Repository": "https://github.com/fauxnik/DerailValleyUnencryptedSaveGameMod/blob/master/Repository.json"
 }
