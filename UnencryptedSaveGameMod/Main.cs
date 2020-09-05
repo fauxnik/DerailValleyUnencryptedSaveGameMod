@@ -14,6 +14,7 @@ namespace UnencryptedSaveGameMod
     {
 
         private static bool isModEnabled;
+        private static bool defaultUseEncryption;
 
         static void Load(UnityModManager.ModEntry modEntry)
         {
@@ -25,32 +26,19 @@ namespace UnencryptedSaveGameMod
         static bool OnToggle(UnityModManager.ModEntry modEntry, bool isTogglingOn)
         {
             isModEnabled = isTogglingOn;
+            if (SaveGameManager.Exists)
+                SaveGameManager.Instance.useEncryption = isModEnabled ? false : defaultUseEncryption;
             return true;
         }
 
-        [HarmonyPatch(typeof(SaveGameManager), "GetPassword")]
+        [HarmonyPatch(typeof(SaveGameManager), "Start")]
         class SaveGameManager_GetPassword_Patch
         {
-            [HarmonyPostfix]
-            static void GetPasswordAlwaysReturnsNull(ref string __result)
+            [HarmonyPrefix]
+            static void Prefix(SaveGameManager __instance)
             {
-                if (isModEnabled)
-                {
-                    __result = null;
-                }
-            }
-        }
-
-        [HarmonyPatch(typeof(SaveGameManager), "GetSavePath")]
-        class SaveGameManager_GetSavePath_Patch
-        {
-            [HarmonyPostfix]
-            static void AppendJsonToPath(ref string __result)
-            {
-                if (isModEnabled && !__result.EndsWith(".json"))
-                {
-                    __result += ".json";
-                }
+                defaultUseEncryption = __instance.useEncryption;
+                if (isModEnabled) __instance.useEncryption = false;
             }
         }
     }
